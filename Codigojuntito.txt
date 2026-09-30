@@ -1,0 +1,54 @@
+import { useState } from 'react';                          // APARTADO 2
+import { Button, StyleSheet, Text, View } from 'react-native'; // (añadido: los componentes que usan los apartados 4 y 5)
+
+const API_URL = 'http://192.168.1.37:3000';                // APARTADO 3
+
+export default function App() {
+  // APARTADO 2: ESTADO
+  const [mensaje, setMensaje] = useState('Sin conectar');
+
+  // APARTADO 3: PEDIR DATOS A UNA API
+  const cargarDatos = async () => {
+    try {
+      const respuesta = await fetch(
+        API_URL + '/ruta'
+      );
+      const datos = await respuesta.json();
+      setMensaje(datos.mensaje);
+    } catch (error) {
+      setMensaje('Error de conexión');
+    }
+  };
+
+  // APARTADO 4: EVENTOS
+  return (
+    <View style={styles.container}>
+      <Button
+        title="CONECTAR"
+        onPress={cargarDatos}
+      />
+      <Text>{mensaje}</Text>
+    </View>
+  );
+}
+
+// APARTADO 5: ESTILOS
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: '#f8f8f8',
+  },
+  card: {
+    padding: 20,
+    borderRadius: 16,
+    backgroundColor: '#ffffff',
+    shadowColor: '#000',
+    shadowRadius: 0.1,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+});
