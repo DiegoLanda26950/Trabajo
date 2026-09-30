@@ -1,0 +1,795 @@
+GUÍA RÁPIDA DE ESTILOS - REACT NATIVE
+
+Aunque solemos decir “CSS”, en React Native usamos StyleSheet.create().
+
+1.  COLOR DE LETRA color: ‘white’, Ejemplo: title: { color: ‘white’, }
+
+También puedes usar hexadecimal: color: ‘#1e293b’,
+
+2.  COLOR DE FONDO backgroundColor: ‘#0f172a’,
+
+Ejemplo: container: { backgroundColor: ‘#0f172a’, }
+
+3.  TAMAÑO DE LETRA fontSize: 22,
+
+4.  LETRA EN NEGRITA fontWeight: ‘bold’,
+
+5.  MARGEN margin: 20,
+
+Añade margen en los cuatro lados.
+
+6.  MARGEN ARRIBA marginTop: 20,
+
+7.  MARGEN ABAJO marginBottom: 20,
+
+8.  MARGEN IZQUIERDA marginLeft: 20,
+
+9.  MARGEN DERECHA marginRight: 20,
+
+10. ESPACIO INTERIOR padding: 20,
+
+Es el espacio entre el contenido y el borde.
+
+11. PADDING ARRIBA paddingTop: 20,
+
+12. PADDING ABAJO paddingBottom: 20,
+
+13. PADDING HORIZONTAL paddingHorizontal: 20,
+
+14. PADDING VERTICAL paddingVertical: 20,
+
+15. BORDES REDONDEADOS borderRadius: 20,
+
+Cuanto mayor sea el número, más redondeado.
+
+16. ANCHO width: 200,
+
+También puedes usar porcentajes: width: ‘48%’,
+
+17. ALTURA height: 110,
+
+18. OCUPAR TODO EL ESPACIO flex: 1,
+
+19. COLOCAR ELEMENTOS EN HORIZONTAL flexDirection: ‘row’,
+
+20. COLOCAR ELEMENTOS EN VERTICAL flexDirection: ‘column’,
+
+21. PERMITIR NUEVAS FILAS flexWrap: ‘wrap’,
+
+Muy útil para crear grids.
+
+22. CENTRAR HORIZONTALMENTE alignItems: ‘center’,
+
+23. CENTRAR VERTICALMENTE justifyContent: ‘center’,
+
+24. SEPARAR ELEMENTOS gap: 10,
+
+25. CENTRAR TEXTO textAlign: ‘center’,
+
+26. EJEMPLO DE TARJETA card: { width: ‘48%’, height: 110,
+    backgroundColor: ‘white’, padding: 20, borderRadius: 20,
+    marginBottom: 10, alignItems: ‘center’, justifyContent: ‘center’, }
+
+27. EJEMPLO DE TÍTULO title: { fontSize: 28, fontWeight: ‘bold’, color:
+    ‘white’, marginTop: 10, marginBottom: 20, }
+
+28. EJEMPLO DE GRID grid: { flexDirection: ‘row’, flexWrap: ‘wrap’, gap:
+    10, }
+
+card: { width: ‘48%’, backgroundColor: ‘white’, borderRadius: 20, }
+
+29. EJEMPLO DE CONTENEDOR PRINCIPAL container: { flex: 1,
+    paddingHorizontal: 32, paddingTop: 70, backgroundColor: ‘#0f172a’, }
+
+RESUMEN RÁPIDO
+
+Color de letra -> color Color de fondo -> backgroundColor Tamaño de
+letra -> fontSize Negrita -> fontWeight Margen -> margin Margen arriba
+-> marginTop Margen abajo -> marginBottom Espacio interior -> padding
+Espacio horizontal -> paddingHorizontal Espacio vertical ->
+paddingVertical Bordes redondeados -> borderRadius Ancho -> width Altura
+-> height Horizontal -> flexDirection: ‘row’ Nueva fila -> flexWrap:
+‘wrap’ Centrar horizontalmente -> alignItems: ‘center’ Centrar
+verticalmente -> justifyContent: ‘center’ Separación -> gap Texto
+centrado -> textAlign: ‘center’ Ocupa todo el espacio -> flex: 1
+
+IMPORTANTE
+
+Los estilos se escriben normalmente dentro de:
+
+const styles = StyleSheet.create({ … });
+
+Y se aplican así:
+
+Hola
+
+
+==================================================
+HTML + CSS - CÓMO ENLAZARLOS
+==================================================
+
+En HTML normalmente usamos un archivo CSS separado.
+
+1. ENLAZAR EL CSS CON HTML
+
+Archivo: index.html
+
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+Esto significa:
+- href indica dónde está el archivo CSS.
+- "css/styles.css" significa que styles.css está dentro de la carpeta css.
+
+Estructura habitual:
+
+proyecto/
+  index.html
+  css/
+    styles.css
+
+
+2. CAMBIAR EL ESTILO DE UNA ETIQUETA HTML
+
+HTML:
+
+<h1>Hola</h1>
+
+CSS:
+
+h1 {
+  color: white;
+  font-size: 30px;
+}
+
+Todos los h1 tendrán esos estilos.
+
+
+3. USAR UNA CLASS
+
+HTML:
+
+<h1 class="titulo">Hola</h1>
+
+CSS:
+
+.titulo {
+  color: white;
+  font-size: 30px;
+}
+
+El punto "." delante de titulo indica que estamos seleccionando una class.
+
+
+4. USAR UN ID
+
+HTML:
+
+<h1 id="titulo">Hola</h1>
+
+CSS:
+
+#titulo {
+  color: white;
+}
+
+El "#" delante de titulo indica que estamos seleccionando un id.
+
+
+5. DIFERENCIA ENTRE CLASS E ID
+
+CLASS:
+
+<p class="texto">Hola</p>
+<p class="texto">Adiós</p>
+
+.texto {
+  color: white;
+}
+
+Se puede utilizar la misma class en varios elementos.
+
+ID:
+
+<p id="titulo">Hola</p>
+
+#titulo {
+  color: white;
+}
+
+Normalmente un id se utiliza para identificar un elemento concreto.
+
+
+6. CAMBIAR EL COLOR DE LA LETRA
+
+color: red;
+
+O con hexadecimal:
+
+color: #ffffff;
+
+
+7. CAMBIAR EL COLOR DE FONDO
+
+background-color: #0f172a;
+
+
+8. CAMBIAR EL TAMAÑO DE LETRA
+
+font-size: 22px;
+
+
+9. PONER NEGRITA
+
+font-weight: bold;
+
+
+10. AUMENTAR EL MARGEN
+
+margin: 20px;
+
+Solo arriba:
+
+margin-top: 20px;
+
+Solo abajo:
+
+margin-bottom: 20px;
+
+Izquierda:
+
+margin-left: 20px;
+
+Derecha:
+
+margin-right: 20px;
+
+
+11. AUMENTAR EL ESPACIO INTERIOR
+
+padding: 20px;
+
+Arriba:
+
+padding-top: 20px;
+
+Abajo:
+
+padding-bottom: 20px;
+
+Horizontal:
+
+padding-left: 20px;
+padding-right: 20px;
+
+
+12. REDONDEAR BORDES
+
+border-radius: 20px;
+
+
+13. CAMBIAR ANCHO Y ALTO
+
+width: 200px;
+height: 100px;
+
+También puedes usar porcentajes:
+
+width: 48%;
+
+
+14. COLOCAR ELEMENTOS EN HORIZONTAL
+
+display: flex;
+flex-direction: row;
+
+
+15. COLOCAR ELEMENTOS EN VERTICAL
+
+display: flex;
+flex-direction: column;
+
+
+16. CENTRAR ELEMENTOS
+
+Horizontal:
+
+justify-content: center;
+
+Vertical:
+
+align-items: center;
+
+Para centrar completamente:
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+17. SEPARAR ELEMENTOS
+
+gap: 10px;
+
+
+18. CENTRAR TEXTO
+
+text-align: center;
+
+
+19. EJEMPLO COMPLETO
+
+HTML:
+
+<div class="card">
+  <h2>Producto</h2>
+  <p>59 €</p>
+</div>
+
+CSS:
+
+.card {
+  background-color: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.card h2 {
+  color: #1e293b;
+  font-size: 22px;
+}
+
+.card p {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+
+20. RECUERDA
+
+HTML = estructura y contenido.
+
+CSS = aspecto y diseño.
+
+Ejemplo:
+
+HTML:
+<h1 class="titulo">Hola</h1>
+
+CSS:
+.titulo {
+  color: white;
+  font-size: 30px;
+}
+
+React Native funciona de otra manera:
+
+const styles = StyleSheet.create({
+  title: {
+    color: 'white',
+    fontSize: 30,
+  },
+});
+
+<Text style={styles.title}>Hola</Text>
+
+En React Native no usamos un archivo CSS externo de esta forma.
+
+
+==================================================
+MODIFICACIONES DE HTML + CSS QUE HEMOS UTILIZADO
+==================================================
+
+Esta parte sirve como resumen de los cambios típicos que hemos hecho en páginas HTML/CSS, para que puedas reconocerlos y modificarlos fácilmente.
+
+1. ENLAZAR EL CSS
+
+En el HTML:
+
+<link rel="stylesheet" href="css/styles.css">
+
+Esto conecta el HTML con el archivo CSS.
+
+Ejemplo de estructura:
+
+proyecto/
+  index.html
+  css/
+    styles.css
+  js/
+    script.js
+
+
+2. CAMBIAR EL FONDO DE LA PÁGINA
+
+CSS:
+
+body {
+  background-color: #0f172a;
+}
+
+Esto cambia el fondo de toda la página.
+
+
+3. CAMBIAR EL COLOR DEL TEXTO
+
+CSS:
+
+color: white;
+
+También podemos usar hexadecimal:
+
+color: #ffffff;
+
+
+4. CREAR UNA TARJETA
+
+HTML:
+
+<div class="card">
+  <h2>Producto</h2>
+  <p>Descripción</p>
+</div>
+
+CSS:
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+
+5. CENTRAR UNA TARJETA
+
+CSS:
+
+.card {
+  width: 300px;
+  margin: 0 auto;
+}
+
+"margin: 0 auto" centra horizontalmente un elemento que tiene un ancho definido.
+
+
+6. CENTRAR TODO EL CONTENIDO
+
+CSS:
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+Si además queremos que ocupe toda la pantalla:
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+7. CREAR UNA FILA DE ELEMENTOS
+
+CSS:
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+Esto coloca los elementos uno al lado del otro.
+
+
+8. CREAR UNA COLUMNA
+
+CSS:
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+Esto coloca los elementos uno debajo de otro.
+
+
+9. CREAR UNA CUADRÍCULA
+
+CSS:
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+Esto crea dos columnas.
+
+
+10. HACER QUE UNA IMAGEN OCUPE TODO EL ANCHO
+
+HTML:
+
+<img src="img/foto.jpg" alt="Foto">
+
+CSS:
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+
+11. REDONDEAR UNA IMAGEN
+
+CSS:
+
+img {
+  border-radius: 20px;
+}
+
+
+12. CAMBIAR EL TAMAÑO DE UN BOTÓN
+
+HTML:
+
+<button>ENVIAR</button>
+
+CSS:
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+
+13. CAMBIAR EL COLOR DE UN BOTÓN
+
+CSS:
+
+button {
+  background-color: #2563eb;
+  color: white;
+}
+
+
+14. QUITAR EL BORDE DE UN BOTÓN
+
+CSS:
+
+button {
+  border: none;
+}
+
+
+15. CAMBIAR EL ESPACIO ENTRE ELEMENTOS
+
+Con gap:
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+Con margin:
+
+.card {
+  margin-bottom: 20px;
+}
+
+
+16. CAMBIAR EL ESPACIO INTERIOR
+
+.card {
+  padding: 20px;
+}
+
+Más espacio:
+
+padding: 30px;
+
+Menos espacio:
+
+padding: 10px;
+
+
+17. HACER UNA PÁGINA RESPONSIVE
+
+Ejemplo:
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+Esto permite cambiar el diseño cuando la pantalla es más pequeña.
+
+
+18. CAMBIAR EL TAMAÑO DEL TÍTULO
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+19. CAMBIAR EL ASPECTO DE LOS ENLACES
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+"text-decoration: none" quita el subrayado.
+
+
+20. CREAR UNA BARRA DE NAVEGACIÓN
+
+HTML:
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+CSS:
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+Esto coloca los enlaces de navegación en horizontal.
+
+
+21. CAMBIAR EL ANCHO DE UN ELEMENTO
+
+Ancho fijo:
+
+width: 300px;
+
+Ancho relativo:
+
+width: 100%;
+
+Porcentaje:
+
+width: 48%;
+
+
+22. CAMBIAR LA ALTURA
+
+height: 100px;
+
+También podemos usar:
+
+min-height: 100vh;
+
+"100vh" significa aproximadamente toda la altura visible de la pantalla.
+
+
+23. SOMBRA DE UNA TARJETA
+
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+Sirve para dar sensación de profundidad.
+
+
+24. EJEMPLO COMPLETO DE UNA PÁGINA
+
+HTML:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi página</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h1>Hola</h1>
+      <p>Esta es mi página.</p>
+      <button>ENTRAR</button>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+CSS:
+
+body {
+  margin: 0;
+  background-color: #0f172a;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.card h1 {
+  color: #1e293b;
+  font-size: 30px;
+}
+
+.card p {
+  color: #64748b;
+}
+
+.card button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+
+25. DIFERENCIA RÁPIDA
+
+HTML:
+
+- Crea los elementos.
+- Texto.
+- Imágenes.
+- Botones.
+- Enlaces.
+- Estructura.
+
+CSS:
+
+- Colores.
+- Tamaños.
+- Márgenes.
+- Espacios interiores.
+- Bordes.
+- Posición.
+- Flexbox.
+- Grid.
+- Diseño responsive.
+
+Ejemplo:
+
+HTML:
+<div class="card">Hola</div>
+
+CSS:
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+El HTML crea la tarjeta y el CSS decide cómo se ve.
