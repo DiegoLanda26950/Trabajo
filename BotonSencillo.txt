@@ -1,0 +1,14 @@
+import { useState } from 'react';
+import { Button, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+export default function App() {
+  const [contador, setContador] = useState(0);
+
+  return (
+    <SafeAreaView style={{ flex: 1, padding: 24 }}>
+      <Text>Pulsaciones: {contador}</Text>
+      <Button title="Sumar" onPress={() => setContador(contador + 1)} />
+    </SafeAreaView>
+  );
+}

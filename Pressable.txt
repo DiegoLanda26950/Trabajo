@@ -1,0 +1,22 @@
+import { useState } from 'react';
+import { Pressable, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+export default function App() {
+  const [activo, setActivo] = useState(false);
+
+  return (
+    <SafeAreaView style={{ flex: 1, padding: 24 }}>
+      <Pressable
+        onPress={() => setActivo(!activo)}
+        style={{
+          padding: 16,
+          borderRadius: 12,
+          backgroundColor: activo ? '#b7f0b7' : '#f0b7b7',
+        }}
+      >
+        <Text>{activo ? '🟢 Activado' : '🔴 Desactivado'}</Text>
+      </Pressable>
+    </SafeAreaView>
+  );
+}

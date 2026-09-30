@@ -1,0 +1,13 @@
+import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+export default function App() {
+  return (
+    <SafeAreaView style={{ flex: 1, padding: 24 }}>
+      <View style={{ backgroundColor: '#e0e0e0', padding: 16, borderRadius: 12 }}>
+        <Text>Texto dentro de un View</Text>
+        <Text>Otro texto en el mismo grupo</Text>
+      </View>
+    </SafeAreaView>
+  );
+}

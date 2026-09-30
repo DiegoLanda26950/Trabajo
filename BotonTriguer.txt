@@ -1,0 +1,73 @@
+import { useState } from 'react';
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const API_URL = 'http://192.168.1.37:3000'; // pon la IP de tu PC
+
+export default function App() {
+  const [contador, setContador] = useState(0);
+  const [texto, setTexto] = useState('Sin cambios');
+  const [mensaje, setMensaje] = useState('🔴 Sin conectar');
+
+  // 1) Función con nombre: se pasa SIN paréntesis
+  const saludar = () => {
+    Alert.alert('Hola', 'Has pulsado el botón');
+  };
+
+  // 2) Función con parámetro: hay que usar flecha
+  const cambiarTexto = (nuevo: string) => {
+    setTexto(nuevo);
+  };
+
+  // 3) Función async que llama al back de Nest
+  const cargarMensaje = async () => {
+    try {
+      const respuesta = await fetch(API_URL + '/mensaje');
+      const datos = await respuesta.json();
+      setMensaje('🟢 ' + datos.texto);
+    } catch (error) {
+      setMensaje('Error de conexión');
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* Abre una alerta */}
+      <View style={styles.bloque}>
+        <Button title="Saludar" onPress={saludar} />
+      </View>
+
+      {/* Cambia un estado directamente con una flecha */}
+      <View style={styles.bloque}>
+        <Text>Contador: {contador}</Text>
+        <Button title="Sumar 1" onPress={() => setContador(contador + 1)} />
+        <Button title="Reiniciar" onPress={() => setContador(0)} />
+      </View>
+
+      {/* Pasa un parámetro a la función */}
+      <View style={styles.bloque}>
+        <Text>{texto}</Text>
+        <Button title="Decir A" onPress={() => cambiarTexto('Has pulsado A')} />
+        <Button title="Decir B" onPress={() => cambiarTexto('Has pulsado B')} />
+      </View>
+
+      {/* Llama al back */}
+      <View style={styles.bloque}>
+        <Text>{mensaje}</Text>
+        <Button title="Conectar con Nest" onPress={cargarMensaje} />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+  },
+  bloque: {
+    marginBottom: 20,
+    gap: 8,
+  },
+});
